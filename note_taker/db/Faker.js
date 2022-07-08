@@ -8,11 +8,11 @@ const path = require("path");
 // import fake db data array
 let { notes } = require("./db.json");
 
-console.log(typeof notes);
-
 function createFakes() {
+  // instances of notes properties
   let fakeTitle = faker.lorem.word();
   let fakeText = faker.lorem.paragraph();
+  // create notes sub-object so it can be pushed to array of notes
   newData = {
     title: fakeTitle,
     text: fakeText,
@@ -24,10 +24,11 @@ function pushFilesTogether(dbFileArray) {
   // define local array instance
   let data = dbFileArray;
 
+  // create the fakes and push them an arbitrary number of times
   for (let i = 0; i < 5; i++) {
     data.push(createFakes());
   }
-  console.log(data);
+  // return the new array of notes
   return data;
 }
 
@@ -43,5 +44,3 @@ function pushNewArray() {
 }
 
 pushNewArray();
-
-// createFakes(db, noteInformation);
